@@ -3,12 +3,12 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>io.github.britka</groupId>
-    <artifactId>playwrightium</artifactId>
-    <version>1.4.0</version>
-    <name>playwrightium</name>
+    <groupId>io.github.egolikov</groupId>
+    <artifactId>playwrightium_custom</artifactId>
+    <version>1.4.1</version>
+    <name>playwrightium_custom</name>
     <description>Webdriver implementation using Playwright Java</description>
-    <url>https://github.com/britka/playwright-webdriver</url>
+    <url>https://github.com/egolikov/playwrightium_custom</url>
     <licenses>
         <license>
             <name>The Apache License, Version 2.0</name>
@@ -17,15 +17,15 @@
     </licenses>
     <developers>
         <developer>
-            <id>britka</id>
-            <name>Serhii Bryt</name>
-            <email>brit.sergey@gmail.com</email>
+            <id>egolikov</id>
+            <name>egolikov</name>
+            <email>none@gmail.com</email>
         </developer>
     </developers>
     <scm>
-        <connection>scm:git://github.com/britka/playwright-webdriver.git</connection>
-        <developerConnection>scm:git://github.com/britka/playwright-webdriver.git</developerConnection>
-        <url>https://github.com/britka/playwright-webdriver</url>
+        <connection>scm:git://github.com/egolikov/playwrightium_custom.git</connection>
+        <developerConnection>scm:git://github.com/egolikov/playwrightium_custom.git</developerConnection>
+        <url>https://github.com/egolikov/playwrightium_custom</url>
     </scm>
 
     <properties>
