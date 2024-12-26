@@ -1,0 +1,65 @@
+plugins {
+    id 'java'
+}
+
+group = 'io.github.egolikov'
+version = '1.4.1'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.microsoft.playwright:playwright:1.49.0'
+    implementation 'org.openpnp:opencv:[4.3.0,)'
+    implementation 'org.slf4j:slf4j-api:2.0.16'
+    implementation 'org.slf4j:slf4j-simple:2.0.16'
+    implementation 'com.codeborne:selenide-testng:7.6.0'
+    implementation 'org.apache.commons:commons-text:1.13.0'
+    implementation 'commons-io:commons-io:2.18.0'
+    implementation 'org.projectlombok:lombok:1.18.36'
+
+    annotationProcessor 'org.projectlombok:lombok:1.18.36'
+
+    testImplementation 'org.assertj:assertj-core:3.27.0'
+    testImplementation 'org.testng:testng:7.10.2'
+    testImplementation 'com.github.javafaker:javafaker:1.0.2'
+    testImplementation 'com.fasterxml.jackson.core:jackson-databind:2.18.2'
+}
+
+tasks.withType(Test) {
+    useTestNG()
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+// Задача для создания стандартного JAR-файла
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'com.yourpackage.MainClass' // Укажите ваш основной класс
+        )
+    }
+}
+
+// Задача для создания "fat JAR" с зависимостями
+tasks.register('fatJar', Jar) {
+    archiveBaseName.set('your-fat-jar-name') // Укажите имя вашего JAR-файла
+    archiveVersion.set(version)
+
+    manifest {
+        attributes(
+                'Main-Class': 'com.yourpackage.MainClass' // Укажите ваш основной класс
+        )
+    }
+
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+
+    with jar
+}
